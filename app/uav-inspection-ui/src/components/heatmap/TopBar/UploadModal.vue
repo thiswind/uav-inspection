@@ -1,15 +1,15 @@
 <template>
-  <div v-if="visible" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm">
-    <div class="w-[500px] bg-white rounded-xl shadow-2xl border border-cyan-100 overflow-hidden flex flex-col">
+  <div v-if="visible" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-3 backdrop-blur-sm sm:p-4">
+    <div class="flex max-h-[calc(100dvh-24px)] w-full max-w-[500px] flex-col overflow-y-auto rounded-xl border border-cyan-100 bg-white shadow-2xl">
       <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-gradient-to-r from-sky-50 to-white">
         <h3 class="text-lg font-bold text-slate-800">新建巡检分析任务</h3>
         <button @click="close" :disabled="uploadStatus === 'uploading'" class="text-slate-400 hover:text-slate-600 transition-colors disabled:opacity-50">✕</button>
       </div>
 
-      <div class="p-6 flex flex-col gap-5">
+      <div class="flex flex-col gap-5 p-4 sm:p-6">
         <!-- 拖拽上传区 -->
         <div
-          class="border-2 border-dashed rounded-lg p-8 text-center transition-colors cursor-pointer"
+          class="cursor-pointer rounded-lg border-2 border-dashed p-5 text-center transition-colors sm:p-8"
           :class="isDragging ? 'border-cyan-500 bg-cyan-50' : 'border-slate-300 hover:border-cyan-400'"
           @dragover.prevent="isDragging = true"
           @dragleave.prevent="isDragging = false"

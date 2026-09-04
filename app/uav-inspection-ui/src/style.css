@@ -1,1 +1,58 @@
 @import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  min-width: 320px;
+  background: #f8fafc;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img,
+video,
+canvas {
+  max-width: 100%;
+}
+
+@media (max-width: 639px) {
+  .mobile-page {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: clip;
+  }
+
+  .mobile-page *,
+  .mobile-page *::before,
+  .mobile-page *::after {
+    min-width: 0;
+  }
+
+  .mobile-page input:not([type='checkbox']):not([type='radio']),
+  .mobile-page select,
+  .mobile-page textarea {
+    width: 100%;
+    max-width: 100%;
+  }
+}

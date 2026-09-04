@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="w-full sm:w-auto">
     <button
       type="button"
-      class="flex h-10 w-64 items-center justify-between gap-3 rounded-lg border border-cyan-200 bg-slate-50 px-4 text-left shadow-sm transition-all hover:border-cyan-400 hover:bg-white"
+      class="flex h-10 w-full items-center justify-between gap-3 rounded-lg border border-cyan-200 bg-slate-50 px-4 text-left shadow-sm transition-all hover:border-cyan-400 hover:bg-white sm:w-64"
       aria-haspopup="dialog"
       :aria-expanded="isOpen"
       data-testid="task-selector-trigger"

@@ -1,12 +1,12 @@
 <template>
-  <div v-if="visible" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm">
-    <div class="w-[420px] bg-white rounded-xl shadow-2xl border border-cyan-100 overflow-hidden flex flex-col">
+  <div v-if="visible" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-3 backdrop-blur-sm sm:p-4">
+    <div class="flex max-h-[calc(100dvh-24px)] w-full max-w-[420px] flex-col overflow-y-auto rounded-xl border border-cyan-100 bg-white shadow-2xl">
       <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-gradient-to-r from-sky-50 to-white">
         <h3 class="text-lg font-bold text-slate-800">导出巡检报告</h3>
         <button @click="close" class="text-slate-400 hover:text-slate-600 transition-colors">✕</button>
       </div>
 
-      <div class="p-6 flex flex-col gap-4">
+      <div class="flex flex-col gap-4 p-4 sm:p-6">
         <label class="flex items-center gap-3 text-sm text-slate-700">
           <input type="checkbox" v-model="includeMinute" class="accent-cyan-500 w-4 h-4" />
           人流统计（分钟级）

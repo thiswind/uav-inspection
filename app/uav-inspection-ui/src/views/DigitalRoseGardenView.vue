@@ -267,7 +267,7 @@ const allTasks = computed(() => plots.flatMap((plot) => plot.tasks.map((task) =>
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-100 text-slate-900">
+  <div class="mobile-page min-h-screen bg-slate-100 text-slate-900">
     <header class="border-b border-slate-200 bg-white">
       <div class="mx-auto flex min-h-16 max-w-[1500px] flex-col gap-3 px-4 py-3 md:flex-row md:items-center md:justify-between md:px-8">
         <div class="flex min-w-0 items-center gap-3">

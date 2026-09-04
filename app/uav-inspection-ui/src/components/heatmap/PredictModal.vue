@@ -1,7 +1,7 @@
 ﻿<template>
   <div v-if="visible" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 backdrop-blur-sm p-4">
-    <div class="w-full max-w-5xl rounded-3xl bg-white shadow-2xl border border-slate-200 overflow-hidden">
-      <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-sky-50 to-white">
+    <div class="max-h-[calc(100dvh-32px)] w-full max-w-5xl overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-2xl sm:rounded-3xl">
+      <div class="flex items-center justify-between border-b border-slate-100 bg-gradient-to-r from-sky-50 to-white px-4 py-4 sm:px-6">
         <div>
           <h3 class="text-lg font-bold text-slate-800">园区客流预测</h3>
           <p class="text-xs text-slate-500 mt-1">按天、按周、按月查看客流趋势与峰值分析</p>
@@ -9,7 +9,7 @@
         <button @click="close" class="text-slate-400 hover:text-slate-700 text-xl leading-none">&times;</button>
       </div>
 
-      <div class="px-6 pt-4 flex gap-2 bg-slate-50/70 border-b border-slate-100">
+      <div class="flex gap-2 overflow-x-auto border-b border-slate-100 bg-slate-50/70 px-4 pt-4 sm:px-6">
         <button
           v-for="tab in tabs"
           :key="tab.key"
@@ -21,7 +21,7 @@
         </button>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 px-6 py-4 bg-slate-50/50">
+      <div class="grid grid-cols-2 gap-3 bg-slate-50/50 px-4 py-4 sm:gap-4 sm:px-6 md:grid-cols-4">
         <div v-for="metric in metrics" :key="metric.label" class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
           <div class="text-xs text-slate-500">{{ metric.label }}</div>
           <div class="mt-2 text-2xl font-bold text-slate-800">{{ metric.value }}</div>
@@ -29,11 +29,11 @@
         </div>
       </div>
 
-      <div class="px-6 py-5">
-        <div ref="chartRef" class="h-[360px] w-full"></div>
+      <div class="px-4 py-5 sm:px-6">
+        <div ref="chartRef" class="h-[280px] w-full sm:h-[360px]"></div>
       </div>
 
-      <div class="px-6 pb-6 flex items-center justify-between text-xs text-slate-500">
+      <div class="flex flex-wrap items-center justify-between gap-3 px-4 pb-5 text-xs text-slate-500 sm:px-6 sm:pb-6">
         <span>{{ statusText }}</span>
         <button @click="close" class="px-4 py-2 rounded-xl bg-sky-500 text-white hover:bg-sky-600 transition">关闭</button>
       </div>

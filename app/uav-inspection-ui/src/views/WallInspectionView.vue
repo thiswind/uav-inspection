@@ -1209,7 +1209,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-50 text-slate-800 xl:flex xl:h-screen xl:min-h-0 xl:flex-col xl:overflow-hidden">
+  <div class="mobile-page min-h-screen overflow-x-hidden bg-slate-50 text-slate-800 xl:flex xl:h-screen xl:min-h-0 xl:flex-col xl:overflow-hidden">
     <div class="w-full px-4 pt-4 md:px-5 xl:shrink-0">
       <InspectionHeader title="建筑外墙巡检" :task-name="currentTaskName" :online="backendOnline">
         <template #actions>
@@ -1363,7 +1363,7 @@ onUnmounted(() => {
           </div>
 
           <DetectionVideoFrame
-            class="h-[calc(100vh-260px)] min-h-[520px] max-h-[840px] xl:h-auto xl:min-h-0 xl:max-h-none xl:flex-1"
+            class="h-[62vh] min-h-[360px] max-h-[680px] sm:min-h-[500px] xl:h-auto xl:min-h-0 xl:max-h-none xl:flex-1"
             data-testid="wall-video-frame"
             label="YOLO 外墙缺陷检测"
             :status="detecting ? '帧分析中' : isPlaying ? '实时播放' : '等待启动'"
