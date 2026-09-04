@@ -31,6 +31,6 @@ export const http = {
     request<T>({ url, method: 'POST', data }),
   delete: <T>(url: string) =>
     request<T>({ url, method: 'DELETE' }),
-  postForm: <T>(url: string, data: FormData) =>
-    request<T>({ url, method: 'POST', data, headers: { 'Content-Type': 'multipart/form-data' } })
+  postForm: <T>(url: string, data: FormData, config?: AxiosRequestConfig) =>
+    request<T>({ url, method: 'POST', data, headers: { 'Content-Type': 'multipart/form-data' }, ...config })
 }
