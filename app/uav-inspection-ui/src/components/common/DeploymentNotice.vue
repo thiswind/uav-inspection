@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { Info, RefreshCw, X } from 'lucide-vue-next'
 import { webPath } from '../../utils/webroot'
+
+const emit = defineEmits<{ (e: 'visibility-change', visible: boolean): void }>()
 
 interface DeploymentStatus {
   data_available: boolean
@@ -51,6 +53,8 @@ async function checkStatus() {
 
 onMounted(checkStatus)
 onUnmounted(() => activeRequest?.abort())
+
+watch(visible, (v) => emit('visibility-change', v === true), { immediate: true })
 </script>
 
 <template>

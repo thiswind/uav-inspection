@@ -105,7 +105,12 @@ async def list_files(category: str, subdir: str = ''):
                 'size': stat.st_size,
                 'modified': int(stat.st_mtime),
             })
-    return {'code': 200, 'data': {'root': str(scope), 'count': len(files), 'files': files}}
+    # 展示用相对路径，不暴露服务器绝对路径
+    try:
+        display_root = str(scope.relative_to(DATA_ROOT))
+    except ValueError:
+        display_root = scope.name
+    return {'code': 200, 'data': {'root': display_root, 'count': len(files), 'files': files}}
 
 
 @router.post('/upload')
