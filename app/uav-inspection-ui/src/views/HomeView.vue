@@ -149,40 +149,40 @@ const handleNavigation = async (path: string) => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-[#f3f4f6] flex flex-col font-sans">
+  <div class="mobile-page min-h-screen bg-[#f3f4f6] flex flex-col font-sans">
     <header class="w-full bg-gradient-to-r from-blue-700 to-indigo-800 shadow-md">
-      <div class="max-w-[1500px] mx-auto px-8 h-20 flex items-center justify-between">
-        <h1 class="text-3xl font-bold tracking-widest text-white">低空智能巡检与决策平台</h1>
-        <div class="flex items-center gap-6 text-base font-medium text-white/90">
+      <div class="mx-auto flex min-h-20 max-w-[1500px] flex-col items-start justify-center gap-2 px-4 py-4 sm:h-20 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:py-0">
+        <h1 class="text-xl font-bold tracking-wide text-white sm:text-3xl sm:tracking-widest">低空智能巡检与决策平台</h1>
+        <div class="flex items-center gap-6 text-sm font-medium text-white/90 sm:text-base">
           <span class="flex items-center gap-2"><span class="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse"></span> 边缘算力在线</span>
         </div>
       </div>
     </header>
 
-    <main class="flex-1 max-w-[1500px] mx-auto w-full px-8 py-8">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-7">
-        <section v-for="group in modules" :key="group.title" class="bg-white rounded-lg shadow-sm border border-slate-200 p-7 flex flex-col">
-          <div class="flex items-center gap-3 mb-7">
-            <div class="w-2 h-8 rounded-full" :class="group.accent"></div>
-            <h2 class="text-2xl font-bold text-slate-800">{{ group.title }}</h2>
+    <main class="mx-auto w-full max-w-[1500px] flex-1 px-4 py-4 sm:px-8 sm:py-8">
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-7">
+        <section v-for="group in modules" :key="group.title" class="flex min-w-0 flex-col rounded-lg border border-slate-200 bg-white p-4 shadow-sm sm:p-7">
+          <div class="mb-4 flex items-center gap-3 sm:mb-7">
+            <div class="h-7 w-1.5 rounded-full sm:h-8 sm:w-2" :class="group.accent"></div>
+            <h2 class="text-xl font-bold text-slate-800 sm:text-2xl">{{ group.title }}</h2>
           </div>
 
-          <div class="flex flex-col gap-5">
+          <div class="flex flex-col gap-3 sm:gap-5">
             <button
               v-for="item in group.items"
               :key="item.name"
               @click="handleNavigation(item.path)"
-              class="w-full h-36 border rounded-lg p-5 shadow-[0_8px_24px_rgba(15,23,42,0.05)] hover:shadow-lg hover:-translate-y-1 transition-all flex items-center group text-left"
+              class="group flex min-h-28 w-full items-center rounded-lg border p-3 text-left shadow-[0_8px_24px_rgba(15,23,42,0.05)] transition-all hover:-translate-y-1 hover:shadow-lg sm:h-36 sm:p-5"
               :class="[moduleThemes[item.theme].card, moduleThemes[item.theme].hover]"
             >
-              <div class="flex flex-col items-center justify-center w-28 shrink-0">
-                <div class="mb-3 flex h-16 w-16 items-center justify-center rounded-lg bg-white shadow-sm ring-1" :class="moduleThemes[item.theme].ring">
-                  <component :is="item.icon" :size="46" stroke-width="1.6" class="group-hover:scale-110 transition-transform" :class="moduleThemes[item.theme].icon" />
+              <div class="flex w-20 shrink-0 flex-col items-center justify-center sm:w-28">
+                <div class="mb-2 flex h-14 w-14 items-center justify-center rounded-lg bg-white shadow-sm ring-1 sm:mb-3 sm:h-16 sm:w-16" :class="moduleThemes[item.theme].ring">
+                  <component :is="item.icon" :size="42" stroke-width="1.6" class="transition-transform group-hover:scale-110" :class="moduleThemes[item.theme].icon" />
                 </div>
                 <span class="text-xs font-semibold text-slate-500 text-center leading-snug">{{ item.desc[0] }}<br>{{ item.desc[1] }}</span>
               </div>
               <div class="flex-1 flex flex-col justify-center items-center gap-2 min-w-0">
-                <span class="text-xl font-extrabold tracking-wide transition-colors" :class="moduleThemes[item.theme].text">{{ item.name }}</span>
+                <span class="text-center text-base font-extrabold tracking-wide transition-colors sm:text-xl" :class="moduleThemes[item.theme].text">{{ item.name }}</span>
                 <span class="rounded-full border px-3 py-1 text-xs font-semibold" :class="moduleThemes[item.theme].badge">进入模块</span>
               </div>
             </button>

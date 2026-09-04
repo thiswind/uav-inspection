@@ -1036,7 +1036,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="relative min-h-screen overflow-hidden bg-slate-50 text-slate-800 xl:flex xl:h-screen xl:min-h-0 xl:flex-col">
+  <div class="mobile-page relative min-h-screen overflow-x-hidden bg-slate-50 text-slate-800 xl:flex xl:h-screen xl:min-h-0 xl:flex-col xl:overflow-hidden">
     <div class="pointer-events-none absolute top-[-10%] right-[-6%] h-[40%] w-[40%] rounded-full bg-emerald-300/18 blur-[120px]"></div>
     <div class="pointer-events-none absolute bottom-[-12%] left-[-6%] h-[40%] w-[40%] rounded-full bg-lime-300/16 blur-[120px]"></div>
     <div class="pointer-events-none absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPBlVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLCAwLCAwLCAwLjAyKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')]"></div>
@@ -1197,7 +1197,7 @@ onUnmounted(() => {
       <section class="min-h-0">
         <div class="rounded-[28px] border border-white bg-white/88 px-4 pb-2 pt-4 shadow-[0_12px_40px_-20px_rgba(34,197,94,0.2)] xl:flex xl:h-full xl:min-h-0 xl:flex-col">
           <DetectionVideoFrame
-            class="h-[calc(100vh-340px)] min-h-[520px] max-h-[820px] xl:h-auto xl:min-h-0 xl:max-h-none xl:flex-1"
+            class="h-[62vh] min-h-[360px] max-h-[680px] sm:min-h-[500px] xl:h-auto xl:min-h-0 xl:max-h-none xl:flex-1"
             data-testid="pruning-video-frame"
             label="YOLO 乔木修剪检测"
             :status="detecting ? '帧分析中' : autoDetectEnabled && isPlaying ? '视频检测中' : isPlaying ? '实时播放' : '等待启动'"

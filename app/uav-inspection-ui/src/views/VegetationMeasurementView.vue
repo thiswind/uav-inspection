@@ -73,7 +73,7 @@ onMounted(loadOverview)
 </script>
 
 <template>
-  <div class="min-h-screen bg-[#f3f5f7] text-slate-800">
+  <div class="mobile-page min-h-screen bg-[#f3f5f7] text-slate-800">
     <header class="border-b border-slate-200 bg-white">
       <div class="mx-auto flex min-h-16 max-w-[1560px] flex-wrap items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <button type="button" title="返回平台首页" class="flex h-10 w-10 items-center justify-center rounded-md border border-slate-200 text-slate-600 transition hover:bg-slate-50" @click="router.push('/')"><ArrowLeft class="h-5 w-5" /></button>

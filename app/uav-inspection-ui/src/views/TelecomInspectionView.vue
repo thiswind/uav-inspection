@@ -712,7 +712,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="relative min-h-screen overflow-hidden bg-slate-50 text-slate-800 xl:flex xl:h-screen xl:min-h-0 xl:flex-col">
+  <div class="mobile-page relative min-h-screen overflow-x-hidden bg-slate-50 text-slate-800 xl:flex xl:h-screen xl:min-h-0 xl:flex-col xl:overflow-hidden">
     <div class="pointer-events-none absolute top-[-10%] right-[-5%] h-[40%] w-[40%] rounded-full bg-blue-300/20 blur-[120px]"></div>
     <div class="pointer-events-none absolute bottom-[-10%] left-[-5%] h-[40%] w-[40%] rounded-full bg-indigo-300/20 blur-[120px]"></div>
     <div class="pointer-events-none absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLCAwLCAwLCAwLjAyKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')]"></div>
@@ -1002,7 +1002,7 @@ onUnmounted(() => {
 
       <section class="flex min-h-0 flex-col pt-0 xl:h-full xl:pl-8">
         <DetectionVideoFrame
-          class="h-[calc(100vh-190px)] min-h-[500px] max-h-[760px] xl:h-full xl:min-h-0 xl:max-h-none"
+          class="h-[62vh] min-h-[360px] max-h-[680px] sm:min-h-[500px] xl:h-full xl:min-h-0 xl:max-h-none"
           data-testid="telecom-video-frame"
           label="YOLO 基站实时检测"
           :status="!inferenceReady && backendOnline ? (isPlaying ? '仅播放 · AI 未启用' : '基础模式 · AI 未启用') : detecting ? '帧分析中' : isPlaying ? '实时播放' : '等待启动'"

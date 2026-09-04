@@ -35,9 +35,9 @@ const formatTime = (seconds: number) => {
 </script>
 
 <template>
-  <div class="w-full h-full flex items-center justify-between bg-white px-4">
+  <div class="task-progress flex h-full w-full items-center justify-between bg-white px-4">
 
-    <div class="flex items-center gap-3 shrink-0 mr-4">
+    <div class="task-progress__primary mr-4 flex shrink-0 items-center gap-3">
       
       <button 
         @click="emit('toggle-pause')"
@@ -69,8 +69,8 @@ const formatTime = (seconds: number) => {
 
     </div>
 
-    <div class="flex-1 flex flex-col justify-center min-w-0 px-4 transition-opacity duration-300" :class="props.isPaused ? 'opacity-80' : 'opacity-100'">
-      <div class="flex justify-between items-end mb-2">
+    <div class="task-progress__track flex min-w-0 flex-1 flex-col justify-center px-4 transition-opacity duration-300" :class="props.isPaused ? 'opacity-80' : 'opacity-100'">
+      <div class="task-progress__meta mb-2 flex items-end justify-between">
         <span class="text-base font-bold text-slate-800 truncate">{{ props.routeName || '未选择航线' }}</span>
         
         <div class="text-xs text-slate-500 font-mono flex items-center gap-3 tracking-wide">
@@ -92,7 +92,7 @@ const formatTime = (seconds: number) => {
       </div>
     </div>
 
-    <div class="flex items-center shrink-0 ml-4">
+    <div class="task-progress__summary ml-4 flex shrink-0 items-center">
       
       <div class="flex flex-col items-end justify-center px-4 border-l border-slate-100 transition-colors duration-300">
         <span class="text-xl font-black tracking-tighter leading-none mb-1" 
@@ -114,7 +114,7 @@ const formatTime = (seconds: number) => {
       </div>
 
       <button
-        class="h-9 px-4 ml-2 rounded-xl bg-gradient-to-r from-rose-500 to-rose-600 text-white flex items-center gap-1.5 hover:from-rose-600 hover:to-rose-700 shadow-md shadow-rose-500/20 transition-all active:scale-95 group"
+        class="task-progress__report group ml-2 flex h-9 items-center gap-1.5 rounded-xl bg-gradient-to-r from-rose-500 to-rose-600 px-4 text-white shadow-md shadow-rose-500/20 transition-all hover:from-rose-600 hover:to-rose-700 active:scale-95"
         @click="emit('generate-report')"
       >
         <FileOutput :size="16" class="group-hover:-translate-y-0.5 transition-transform" />
@@ -125,3 +125,44 @@ const formatTime = (seconds: number) => {
 
   </div>
 </template>
+
+<style scoped>
+@media (max-width: 620px) {
+  .task-progress {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .task-progress__primary,
+  .task-progress__summary {
+    margin: 0;
+  }
+
+  .task-progress__primary {
+    gap: 8px;
+  }
+
+  .task-progress__track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding: 0;
+  }
+
+  .task-progress__meta {
+    margin-bottom: 6px;
+  }
+
+  .task-progress__meta > div,
+  .task-progress__summary > div {
+    display: none;
+  }
+
+  .task-progress__report {
+    margin-left: 0;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}
+</style>

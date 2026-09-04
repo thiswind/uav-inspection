@@ -355,26 +355,26 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-[#f3f4f6] font-sans flex flex-col">
+  <div class="mobile-page min-h-screen bg-[#f3f4f6] font-sans flex flex-col">
     <header class="w-full bg-gradient-to-r from-blue-700 to-indigo-800 shadow-md">
-      <div class="max-w-[1100px] mx-auto px-8 h-20 flex items-center justify-between">
-        <div class="flex items-center gap-4">
+      <div class="mx-auto flex min-h-20 max-w-[1100px] flex-wrap items-center justify-between gap-3 px-4 py-3 sm:h-20 sm:flex-nowrap sm:px-8 sm:py-0">
+        <div class="flex min-w-0 items-center gap-3 sm:gap-4">
           <button
             class="flex items-center gap-2 text-white/90 hover:text-white text-sm font-medium px-3 py-1.5 rounded-md border border-white/30 hover:border-white/60 transition-colors"
             @click="router.push('/')"
           >
             <ArrowLeft :size="16" /> 返回首页
           </button>
-          <h1 class="text-2xl font-bold tracking-widest text-white">素材上传中心</h1>
+          <h1 class="text-xl font-bold tracking-wide text-white sm:text-2xl sm:tracking-widest">素材上传中心</h1>
         </div>
-        <div class="flex items-center gap-2 text-white/90 text-sm font-medium">
+        <div class="flex w-full items-center gap-2 text-xs font-medium text-white/90 sm:w-auto sm:text-sm">
           <HardDriveUpload :size="18" /> 大文件分片 · 断点续传
         </div>
       </div>
     </header>
 
-    <main class="flex-1 max-w-[1100px] mx-auto w-full px-8 py-8 flex flex-col gap-6">
-      <section class="bg-white rounded-lg shadow-sm border border-slate-200 p-6 flex flex-col gap-5">
+    <main class="mx-auto flex w-full max-w-[1100px] flex-1 flex-col gap-4 px-4 py-4 sm:gap-6 sm:px-8 sm:py-8">
+      <section class="flex flex-col gap-5 rounded-lg border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
         <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
           <UploadCloud :size="20" class="text-blue-600" /> 上传素材
         </h2>
@@ -384,7 +384,7 @@ onMounted(async () => {
             素材分类
             <select
               v-model="category"
-              class="border border-slate-300 rounded-md px-3 py-2 text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full min-w-0 rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
               @change="refreshFiles()"
             >
               <option v-for="item in categories" :key="item.key" :value="item.key">
@@ -398,19 +398,19 @@ onMounted(async () => {
               v-model="subdir"
               type="text"
               placeholder="task-2026/demo"
-              class="border border-slate-300 rounded-md px-3 py-2 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full min-w-0 rounded-md border border-slate-300 px-3 py-2 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
               @change="refreshFiles()"
             />
           </label>
         </div>
 
-        <label class="flex items-center gap-2 text-sm text-slate-600 select-none cursor-pointer">
+        <label class="flex cursor-pointer select-none items-start gap-2 text-sm leading-5 text-slate-600 sm:items-center">
           <input v-model="overwrite" type="checkbox" class="h-4 w-4 accent-blue-600" />
           覆盖同名文件（默认关闭：同名文件跳过不覆盖）
         </label>
 
         <label
-          class="border-2 border-dashed border-slate-300 rounded-lg p-8 text-center cursor-pointer hover:border-blue-400 hover:bg-blue-50/40 transition-colors"
+          class="cursor-pointer rounded-lg border-2 border-dashed border-slate-300 p-5 text-center transition-colors hover:border-blue-400 hover:bg-blue-50/40 sm:p-8"
         >
           <input type="file" multiple class="hidden" @change="onPick" />
           <FolderOpen :size="34" class="mx-auto text-slate-400 mb-2" />
@@ -428,7 +428,7 @@ onMounted(async () => {
             :key="t.key"
             class="border border-slate-200 rounded-md px-4 py-3 flex flex-col gap-2"
           >
-            <div class="flex items-center justify-between gap-3">
+            <div class="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
               <span class="font-mono text-sm text-slate-700 break-all">{{ t.file.name }}</span>
               <span class="flex items-center gap-2 whitespace-nowrap">
                 <span class="text-xs text-slate-400">{{ formatSize(t.uploaded) }} / {{ formatSize(t.total) }}</span>
@@ -477,7 +477,7 @@ onMounted(async () => {
           </li>
         </ul>
 
-        <div class="flex items-center gap-4">
+        <div class="flex flex-wrap items-center gap-3 sm:gap-4">
           <button
             class="px-5 py-2.5 rounded-md bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             :disabled="busy ? false : !pendingCount"
@@ -494,7 +494,7 @@ onMounted(async () => {
         </div>
       </section>
 
-      <section class="bg-white rounded-lg shadow-sm border border-slate-200 p-6 flex flex-col gap-4">
+      <section class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
         <div class="flex items-center justify-between">
           <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
             <FolderOpen :size="20" class="text-emerald-600" /> 当前目录文件

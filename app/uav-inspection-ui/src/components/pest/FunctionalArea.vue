@@ -223,11 +223,11 @@ const downloadReport = (report: ReportItem) => {
 
     <Teleport to="body">
       <Transition name="modal-fade">
-        <div v-if="activeModal" class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/30 backdrop-blur-sm">
+        <div v-if="activeModal" class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/30 p-3 backdrop-blur-sm sm:p-4">
           
-          <div class="bg-white w-[540px] rounded-[2rem] shadow-2xl overflow-hidden flex flex-col border border-white/80 transform transition-all duration-300 scale-100">
+          <div class="flex max-h-[calc(100dvh-24px)] w-full max-w-[540px] scale-100 transform flex-col overflow-hidden rounded-2xl border border-white/80 bg-white shadow-2xl transition-all duration-300 sm:max-h-[calc(100dvh-32px)] sm:rounded-[2rem]">
             
-            <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+            <div class="flex items-center justify-between border-b border-slate-100 bg-slate-50/50 px-4 py-4 sm:px-6">
               <div class="flex items-center gap-2">
                 <div class="w-1 h-3 bg-rose-500 rounded-full"></div>
                 <h2 class="text-sm font-bold text-slate-800">
@@ -241,7 +241,7 @@ const downloadReport = (report: ReportItem) => {
               </button>
             </div>
 
-            <div class="p-6 min-h-[300px] max-h-[60vh] overflow-y-auto bg-slate-50/30">
+            <div class="min-h-0 flex-1 overflow-y-auto bg-slate-50/30 p-4 sm:min-h-[300px] sm:max-h-[60vh] sm:p-6">
               <div v-if="errorMessage" class="mb-4 text-xs text-rose-600 bg-rose-50 border border-rose-100 rounded-lg px-3 py-2">
                 {{ errorMessage }}
               </div>
@@ -348,13 +348,13 @@ const downloadReport = (report: ReportItem) => {
 
             </div>
 
-            <div class="px-6 py-4 bg-white border-t border-slate-100 flex items-center justify-between gap-3">
+            <div class="flex flex-col items-stretch justify-between gap-3 border-t border-slate-100 bg-white px-4 py-4 sm:flex-row sm:items-center sm:px-6">
               <div class="text-xs text-slate-500">
                 <span v-if="errorMessage" class="text-rose-500">{{ errorMessage }}</span>
                 <span v-else-if="missionResult" class="text-emerald-600">任务已创建：{{ missionResult.name || missionResult.id }}</span>
                 <span v-else>请选择航线与模型后创建任务</span>
               </div>
-              <div class="flex items-center gap-3">
+              <div class="grid grid-cols-2 items-center gap-3 sm:flex">
                 <button @click="activeModal = null" class="px-5 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100 bg-slate-50 border border-slate-200 rounded-xl transition-colors active:scale-95">关闭窗口</button>
                 <button
                   class="px-5 py-2 text-xs font-bold text-white bg-rose-500 hover:bg-rose-600 rounded-xl shadow-md shadow-rose-500/20 transition-all active:scale-95"

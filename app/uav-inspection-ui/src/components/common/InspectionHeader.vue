@@ -149,10 +149,21 @@ withDefaults(defineProps<{
 }
 
 @media (max-width: 620px) {
+  .inspection-header {
+    gap: 10px;
+    padding: 12px;
+  }
+
   .inspection-header__identity {
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 12px;
+  }
+
+  .inspection-header__title {
+    font-size: 19px;
+    text-overflow: initial;
+    white-space: normal;
   }
 
   .inspection-header__task {
@@ -163,6 +174,28 @@ withDefaults(defineProps<{
     border-top: 1px solid #e2e8f0;
     padding-top: 10px;
     padding-left: 0;
+  }
+
+  .inspection-header__actions {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    overflow: visible;
+    white-space: normal;
+  }
+
+  .inspection-header__actions :slotted(button),
+  .inspection-header__actions :slotted(a) {
+    width: 100%;
+    min-height: 42px;
+    padding: 8px 10px !important;
+    white-space: normal;
+  }
+
+  .inspection-header__actions :slotted(span) {
+    align-self: center;
+    justify-self: center;
   }
 }
 </style>

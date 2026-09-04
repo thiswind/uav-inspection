@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen w-full bg-slate-50 relative text-slate-800 flex flex-col font-sans overflow-x-hidden lg:h-screen lg:overflow-hidden">
+  <div class="mobile-page min-h-screen w-full bg-slate-50 relative text-slate-800 flex flex-col font-sans overflow-x-hidden lg:h-screen lg:overflow-hidden">
     <!-- 背景装饰 -->
     <div class="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-cyan-300/20 rounded-full blur-[120px] pointer-events-none"></div>
     <div class="absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] bg-sky-300/20 rounded-full blur-[120px] pointer-events-none"></div>
@@ -81,7 +81,7 @@
       <section class="order-1 flex min-w-0 flex-1 flex-col gap-6 lg:order-none">
         <div class="flex min-h-0 flex-1 flex-col gap-6 lg:flex-row">
           
-          <div class="relative flex min-h-[520px] w-full flex-col overflow-hidden rounded-lg border border-slate-700/50 bg-slate-900 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.3)] lg:min-h-0 lg:w-1/2">
+          <div class="relative flex min-h-[360px] w-full flex-col overflow-hidden rounded-lg border border-slate-700/50 bg-slate-900 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.3)] sm:min-h-[520px] lg:min-h-0 lg:w-1/2">
             <div class="pointer-events-none absolute left-4 top-14 z-30 flex flex-col gap-2">
               <div class="bg-black/50 backdrop-blur-md border border-cyan-500/30 text-cyan-400 text-xs font-mono px-3 py-1.5 rounded-lg shadow-[0_0_15px_rgba(6,182,212,0.2)]">
                 FRAME <span class="text-white ml-2">{{ videoGIS.currentFrameId.value || 0 }}</span>
@@ -102,7 +102,7 @@
             </div>
           </div>
 
-          <div class="relative min-h-[520px] w-full overflow-hidden rounded-lg border border-white bg-white/70 p-1.5 shadow-[0_8px_30px_-12px_rgba(14,165,233,0.15)] backdrop-blur-xl lg:min-h-0 lg:w-1/2">
+          <div class="relative min-h-[360px] w-full overflow-hidden rounded-lg border border-white bg-white/70 p-1.5 shadow-[0_8px_30px_-12px_rgba(14,165,233,0.15)] backdrop-blur-xl sm:min-h-[520px] lg:min-h-0 lg:w-1/2">
             <div class="w-full h-full rounded-xl overflow-hidden bg-slate-100 relative">
               <div class="absolute top-3 right-3 z-[400] bg-white/90 backdrop-blur border border-slate-200 rounded-lg shadow-sm px-3 py-2 flex flex-col gap-2 text-xs font-medium text-slate-600">
                 <div

@@ -134,7 +134,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="flex min-h-screen w-full flex-col gap-4 overflow-x-hidden bg-slate-50 p-4 font-sans text-slate-700 antialiased selection:bg-rose-200 lg:h-screen lg:w-screen lg:overflow-hidden">
+  <div class="mobile-page flex min-h-screen w-full flex-col gap-4 overflow-x-hidden bg-slate-50 p-3 font-sans text-slate-700 antialiased selection:bg-rose-200 sm:p-4 lg:h-screen lg:w-screen lg:overflow-hidden">
     <InspectionHeader title="病虫害低空智能巡检" :task-name="missionInfo?.name || routeInfo?.name || ''" :online="true">
       <template #actions>
         <button class="border border-rose-200 bg-rose-50 text-sm font-medium text-rose-700" @click="handleTogglePause">
@@ -164,11 +164,11 @@ onUnmounted(() => {
         </div>
       </aside>
 
-      <section class="order-1 flex min-h-[680px] min-w-0 flex-col gap-4 lg:order-none lg:min-h-0">
+      <section class="order-1 flex min-h-[480px] min-w-0 flex-col gap-4 sm:min-h-[680px] lg:order-none lg:min-h-0">
         <div class="flex-[5] relative min-h-0">
           <LiveVideoFeed :isPaused="isPaused" :routeId="routeInfo?.id" @toggle-pause="handleTogglePause" />
         </div>
-        <div class="h-16 bg-white border border-slate-200 rounded-xl shadow-sm shrink-0 overflow-hidden relative">
+        <div class="relative min-h-28 shrink-0 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm sm:h-16 sm:min-h-0">
           <TaskProgressBar
             :isPaused="isPaused"
             :progress="progress"

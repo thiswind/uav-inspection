@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen w-full bg-slate-50 relative text-slate-800 flex flex-col font-sans overflow-x-hidden lg:h-screen lg:overflow-hidden">
+  <div class="mobile-page min-h-screen w-full bg-slate-50 relative text-slate-800 flex flex-col font-sans overflow-x-hidden lg:h-screen lg:overflow-hidden">
     <div class="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-pink-300/20 rounded-full blur-[120px] pointer-events-none"></div>
     <div class="absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] bg-rose-300/20 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -95,7 +95,7 @@
       </aside>
 
       <!-- ========== 区域1：中间视频+检测 ========== -->
-      <section class="order-1 flex min-h-[560px] min-w-0 flex-1 flex-col gap-3 lg:order-none lg:min-h-0">
+      <section class="order-1 flex min-h-[440px] min-w-0 flex-1 flex-col gap-3 sm:min-h-[560px] lg:order-none lg:min-h-0">
         <div class="flex-1 bg-slate-900 rounded-2xl overflow-hidden relative shadow-lg min-h-0 flex flex-col">
           <div class="absolute top-14 left-3 right-3 z-20 flex items-start justify-between pointer-events-none">
             <div class="flex flex-col gap-1.5">
