@@ -136,6 +136,23 @@ location ^~ /uav/ {
 
 安全设计：10 分类**白名单**（未知分类 422）、子目录逐段校验拒路径穿越、文件名 basename + 控制字符清洗、`overwrite=true` 才允许覆盖已有文件。
 
+### 大文件分片上传（断点续传）
+
+1GB+ 的巡检视频走直传极易超时，上传中心内置**分片协议**，前端自动启用：
+
+```
+POST /api/v1/assets/upload/init      # 声明文件 → 拿 uploadId / chunkSize / totalChunks
+                                      #（同名同大小直接命中「秒传」，不传数据）
+GET  /api/v1/assets/upload/status    # 已收分片列表 → 断点续传的依据
+POST /api/v1/assets/upload/chunk     # 逐片上传（幂等，重试安全）
+POST /api/v1/assets/upload/complete  # 分片齐全+总大小校验后原子合并落盘
+```
+
+- 分片大小默认 **8MB**（`UAV_CHUNK_SIZE` 环境变量可调），单请求体积小、单片失败只重传一片
+- 页面支持**进度条 / 暂停继续 / 失败重试**；上传中刷新页面，进度仍保留（uploadId 持久化，重选文件自动跳过已传分片）
+- 服务端原子合并（临时名 + rename），不产生半文件；废弃分片 7 天自动清理
+- nginx 侧无需为总文件大小放宽 `client_max_body_size`——只需覆盖单片
+
 ## ✅ 测试
 
 ```bash
@@ -146,6 +163,9 @@ UAV_DATA_DIR=$(mktemp -d) python -m unittest discover -s tests -p test_optional_
 
 # 素材上传中心（白名单/穿越拒绝/防覆盖/清单）
 UAV_DATA_DIR=$(mktemp -d) python -m unittest discover -s tests -p test_uav_assets_upload.py
+
+# 分片上传（全流程/断点续传/秒传/竞态去重/参数校验/废弃清理）
+UAV_DATA_DIR=$(mktemp -d) python -m unittest discover -s tests -p test_uav_assets_chunked.py
 
 # 前端类型检查 + 构建
 cd ../uav-inspection-ui && npm run build
