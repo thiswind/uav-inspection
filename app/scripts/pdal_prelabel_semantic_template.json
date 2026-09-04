@@ -1,0 +1,28 @@
+[
+  {
+    "type": "readers.las",
+    "filename": "__INPUT__"
+  },
+  {
+    "type": "filters.csf",
+    "resolution": 1.0,
+    "rigidness": 2,
+    "iterations": 500
+  },
+  {
+    "type": "filters.hag_nn"
+  },
+  {
+    "type": "filters.assign",
+    "value": [
+      "Classification = 5 WHERE HeightAboveGround > 2.0 && Green > Red && Green > Blue",
+      "Classification = 4 WHERE HeightAboveGround >= 0.3 && HeightAboveGround <= 2.0 && Green > Red && Green > Blue"
+    ]
+  },
+  {
+    "type": "writers.las",
+    "filename": "__OUTPUT__",
+    "extra_dims": "all",
+    "minor_version": 4
+  }
+]

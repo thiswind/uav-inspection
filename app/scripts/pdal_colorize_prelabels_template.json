@@ -1,0 +1,29 @@
+[
+  {
+    "type": "readers.las",
+    "filename": "__INPUT__"
+  },
+  {
+    "type": "filters.assign",
+    "value": [
+      "Red = 130 WHERE Classification == 1",
+      "Green = 130 WHERE Classification == 1",
+      "Blue = 130 WHERE Classification == 1",
+      "Red = 160 WHERE Classification == 2",
+      "Green = 82 WHERE Classification == 2",
+      "Blue = 45 WHERE Classification == 2",
+      "Red = 50 WHERE Classification == 4",
+      "Green = 205 WHERE Classification == 4",
+      "Blue = 50 WHERE Classification == 4",
+      "Red = 0 WHERE Classification == 5",
+      "Green = 110 WHERE Classification == 5",
+      "Blue = 0 WHERE Classification == 5"
+    ]
+  },
+  {
+    "type": "writers.las",
+    "filename": "__OUTPUT__",
+    "extra_dims": "all",
+    "minor_version": 4
+  }
+]

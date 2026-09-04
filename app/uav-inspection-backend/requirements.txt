@@ -1,0 +1,2 @@
+# Small default installation; real model inference is optional.
+-r requirements-base.txt

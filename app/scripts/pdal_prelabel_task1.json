@@ -1,0 +1,41 @@
+[
+  {
+    "type": "readers.las",
+    "filename": "/webodm/app/media/project/1/task/5795b0c1-9064-4a0b-97ea-82369405cdb9/assets/odm_georeferencing/odm_georeferenced_model.laz"
+  },
+  {
+    "type": "filters.csf",
+    "resolution": 1.0,
+    "rigidness": 2,
+    "iterations": 500
+  },
+  {
+    "type": "filters.hag_nn"
+  },
+  {
+    "type": "filters.sort",
+    "dimension": "HeightAboveGround",
+    "order": "DESC"
+  },
+  {
+    "type": "filters.litree",
+    "min_points": 50,
+    "min_height": 2.0,
+    "radius": 50.0,
+    "where": "HeightAboveGround > 2.0 && Green > Red && Green > Blue",
+    "where_merge": true
+  },
+  {
+    "type": "filters.assign",
+    "value": [
+      "Classification = 5 WHERE ClusterID > 0",
+      "Classification = 4 WHERE HeightAboveGround >= 0.3 && HeightAboveGround <= 2.0 && Green > Red && Green > Blue"
+    ]
+  },
+  {
+    "type": "writers.las",
+    "filename": "/tmp/prelabel_task1.laz",
+    "extra_dims": "all",
+    "minor_version": 4
+  }
+]

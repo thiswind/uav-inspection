@@ -1,0 +1,12 @@
+# Node
+uav-inspection-ui/node_modules/
+uav-inspection-ui/dist/
+# Python
+__pycache__/
+*.pyc
+.venv-deploy/
+# 运行时数据与密钥（数据在服务器命名卷，不进仓）
+deploy/.env
+app/02-data/
+*.log
+.DS_Store

@@ -1,0 +1,18 @@
+[
+  {
+    "type": "readers.las",
+    "filename": "/tmp/prelabel_semantic_5795b0c1.laz"
+  },
+  {
+    "type": "filters.range",
+    "limits": "Classification[5:5]"
+  },
+  {
+    "type": "writers.text",
+    "filename": "/tmp/tree_candidates_5795b0c1.csv",
+    "order": "X,Y,Z,Red,Green,Blue,HeightAboveGround",
+    "keep_unspecified": false,
+    "write_header": true,
+    "precision": 4
+  }
+]

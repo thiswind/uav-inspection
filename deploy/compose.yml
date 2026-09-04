@@ -1,0 +1,27 @@
+name: uav
+
+services:
+  uav:
+    # 镜像默认取本机 registry；按现场修改 deploy/.env 或 UAV_IMAGE 环境变量
+    # 也可改为完全本地构建：见 scripts/build_and_push.sh
+    image: ${UAV_IMAGE:-127.0.0.1:15000/uav/inspection:latest}
+    restart: always
+    environment:
+      # 挂在反向代理子路径下时与 nginx 的前缀保持一致；根路径部署可置空
+      - UAV_URL_PREFIX=${UAV_URL_PREFIX:-/uav}
+      - UAV_DATA_DIR=/data
+    ports:
+      # 只绑回环，由 nginx 统一对外；如需直连可改为 "8002:8002"
+      - "127.0.0.1:${UAV_PORT:-18020}:8002"
+    volumes:
+      - uav-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request;urllib.request.urlopen('http://127.0.0.1:8002/api/health', timeout=5)\""]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+volumes:
+  # 上传视频/测量结果/模型权重全部持久化（重建容器不丢）
+  uav-data:

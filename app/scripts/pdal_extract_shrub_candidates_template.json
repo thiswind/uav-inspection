@@ -1,0 +1,18 @@
+[
+  {
+    "type": "readers.las",
+    "filename": "__INPUT__"
+  },
+  {
+    "type": "filters.range",
+    "limits": "Classification[4:4]"
+  },
+  {
+    "type": "writers.text",
+    "filename": "__OUTPUT__",
+    "order": "X,Y,Z,HeightAboveGround",
+    "keep_unspecified": false,
+    "write_header": true,
+    "precision": 4
+  }
+]

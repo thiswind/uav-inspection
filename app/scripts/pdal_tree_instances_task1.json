@@ -1,0 +1,27 @@
+[
+  {
+    "type": "readers.las",
+    "filename": "/tmp/prelabel_semantic_5795b0c1.laz"
+  },
+  {
+    "type": "filters.range",
+    "limits": "Classification[5:5]"
+  },
+  {
+    "type": "filters.sort",
+    "dimension": "HeightAboveGround",
+    "order": "DESC"
+  },
+  {
+    "type": "filters.litree",
+    "min_points": 100,
+    "min_height": 2.0,
+    "radius": 50.0
+  },
+  {
+    "type": "writers.las",
+    "filename": "/tmp/tree_instances_5795b0c1.laz",
+    "extra_dims": "all",
+    "minor_version": 4
+  }
+]
