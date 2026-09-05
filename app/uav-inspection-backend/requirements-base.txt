@@ -7,7 +7,7 @@ motor==3.7.1
 pydantic==2.13.5
 pydantic-settings==2.15.0
 python-multipart==0.0.32
-websockets==16.0
+websockets==16.1.1
 aiofiles==25.1.0
 opencv-python==4.12.0.88
 numpy==2.5.2
