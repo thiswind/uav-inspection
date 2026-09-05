@@ -1,7 +1,7 @@
 # Optional real AI inference. Install base requirements first.
 # deploy.py install --inference installs CPU Torch before this file.
 # GPU users should install the matching Torch build explicitly instead.
-torch==2.9.1
+torch==2.13.0
 torchvision==0.24.1
 ultralytics==8.3.248
 lapx==0.9.4
