@@ -51,6 +51,16 @@
 
 *左：`/assets` 上传中心——分类下拉自带目标目录提示；右：巡检工作台——无人机状态面板 + 视频检测区*
 
+### 📱 移动端
+
+响应式布局（PR [#5](https://github.com/thiswind/uav-inspection/pull/5)，感谢 [@rg-ut](https://github.com/rg-ut)），手机浏览器 / 窄窗口直接可用：
+
+| 无人机巡检首页 | 素材上传 | 云锡统一门户 |
+|---|---|---|
+| ![mobile-home](docs/screenshots/mobile-home.png) | ![mobile-assets](docs/screenshots/mobile-assets.png) | ![mobile-yunxi](docs/screenshots/mobile-yunxi-portal.png) |
+
+*390×844（iPhone 12 Pro 视口）实拍；两套演示系统均完成移动端适配*
+
 ## 🏗️ 架构
 
 ![architecture](docs/architecture.png)
