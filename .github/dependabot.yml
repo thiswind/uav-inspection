@@ -20,6 +20,9 @@ updates:
       - dependency-name: "torchvision"
       - dependency-name: "ultralytics"
       - dependency-name: "lapx"
+      # opencv-python 在 8+ 生产模块深度使用，主版本（5.x）需计划性迁移+全量回归
+      - dependency-name: "opencv-python"
+        update-types: ["version-update:semver-major"]
 
   # GitHub Actions（如有）：正常升级
   - package-ecosystem: "github-actions"
