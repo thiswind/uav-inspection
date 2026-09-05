@@ -1,0 +1,28 @@
+version: 2
+updates:
+  # 前端 npm 依赖：正常升级
+  - package-ecosystem: "npm"
+    directory: "/app/uav-inspection-ui"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+
+  # 后端基础依赖（生产镜像实际安装的集合）：正常升级
+  - package-ecosystem: "pip"
+    directory: "/app/uav-inspection-backend"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    ignore:
+      # requirements-inference.txt 是可选 AI 推理层，torch/torchvision/ultralytics
+      # 必须作为整体验证过的兼容集合升级，不接受单点 bump
+      - dependency-name: "torch"
+      - dependency-name: "torchvision"
+      - dependency-name: "ultralytics"
+      - dependency-name: "lapx"
+
+  # GitHub Actions（如有）：正常升级
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
