@@ -23,6 +23,12 @@ updates:
       # opencv-python 在 8+ 生产模块深度使用，主版本（5.x）需计划性迁移+全量回归
       - dependency-name: "opencv-python"
         update-types: ["version-update:semver-major"]
+      # websockets 承载 2 个生产 WS 端点（视频流/遥测），主版本需计划性迁移
+      - dependency-name: "websockets"
+        update-types: ["version-update:semver-major"]
+      # vue-router 是 SPA 主干，主版本重写需专项迁移+全页回归
+      - dependency-name: "vue-router"
+        update-types: ["version-update:semver-major"]
 
   # GitHub Actions（如有）：正常升级
   - package-ecosystem: "github-actions"
