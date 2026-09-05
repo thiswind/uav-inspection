@@ -29,6 +29,9 @@ updates:
       # vue-router 是 SPA 主干，主版本重写需专项迁移+全页回归
       - dependency-name: "vue-router"
         update-types: ["version-update:semver-major"]
+      # typescript 主版本必须与 vue-tsc 配对升级（build 链 vue-tsc -b 依赖语言核心匹配）
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
 
   # GitHub Actions（如有）：正常升级
   - package-ecosystem: "github-actions"
