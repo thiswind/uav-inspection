@@ -1,7 +1,7 @@
 # Base web app: Python 3.12 recommended. Versions match the local runtime.
 # No GPU, Torch, trained weights, video data, or MongoDB server required.
 -c requirements-base-lock.txt
-fastapi==0.139.0
+fastapi==0.141.1
 uvicorn==0.52.4
 motor==3.7.1
 pydantic==2.13.5
