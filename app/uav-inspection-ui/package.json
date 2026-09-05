@@ -30,7 +30,7 @@
     "postcss": "^8.5.28",
     "tailwindcss": "^4.2.4",
     "typescript": "~6.0.2",
-    "vite": "^8.0.10",
+    "vite": "^8.2.2",
     "vue-tsc": "^3.2.7"
   }
 }
