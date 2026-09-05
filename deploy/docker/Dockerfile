@@ -19,9 +19,11 @@ WORKDIR /app
 COPY app/uav-inspection-backend/requirements.txt app/uav-inspection-backend/requirements-base.txt \
      app/uav-inspection-backend/requirements-base-lock.txt /tmp/
 # OpenCV 运行库与 pip 依赖同层（slim 缺 libxcb/libGL 会静默降级视觉功能）
+# 注：校园网出口对 HTTPS 做中间人拦截、对 HTTP InRelease 篡改签名，apt 校验必挂，
+# 这里 AllowInsecureRepositories + 按精确包名安装（仅这 3 个运行库），公网环境可去掉该参数
 RUN pip install --no-cache-dir -r /tmp/requirements.txt \
-    && apt-get update -qq \
-    && apt-get install -y -qq --no-install-recommends libxcb1 libgl1 libglib2.0-0 \
+    && apt-get update -qq -o Acquire::AllowInsecureRepositories=true \
+    && apt-get install -y -qq --no-install-recommends --allow-unauthenticated libxcb1 libgl1 libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 COPY app/uav-inspection-backend/ /app/uav-inspection-backend/
 COPY --from=fe-build /src/dist /app/uav-inspection-ui/dist
